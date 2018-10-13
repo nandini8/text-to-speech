@@ -1,0 +1,19 @@
+<html
+	<head>
+	</head>
+	<body>
+		<script>
+			var msg = new SpeechSynthesisUtterance('The code creates five voices and then loops through each of them, having each of them say a simple sentence. This loop itself actually exits almost immediately, and the system then just plays through each of the queued-up messages one after the other until its buffer is empty. In a real-world application, you’d probably want to use asynchronous callbacks to handle sequences like this, but that tends to get messy, and simple iteration is good enough to demonstrate the basic functionality.');
+			var synth = window.speechSynthesis;
+			var voices = synth.getVoices();
+			for(var i = 0; i < voices.length ; i++)
+			{
+				document.write(i, voices[i].name + "\t");
+			}
+				msg.voice = voices[0];
+				msg.pitch = 1;
+				msg.rate = 1;
+				synth.speak(msg);
+			</script>
+			</body>
+	</html>
